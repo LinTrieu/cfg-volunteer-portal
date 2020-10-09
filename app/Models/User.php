@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\SocialIdentity;
 
 class User extends Authenticatable
 {
@@ -42,6 +43,6 @@ class User extends Authenticatable
     ];
 
     public function identities() {
-        return $this->hasMany('App\SocialIdentity');
+        return $this->hasMany('App\Models\SocialIdentity');
     }
 }
