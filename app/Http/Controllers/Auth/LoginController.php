@@ -55,7 +55,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Return a callback method from socialite provider api.
+     * Reads the incoming request, retrieves user information from the provider, and logs user in.
      * @param string $provider
      * @return RedirectResponse|Redirector
      */
@@ -72,7 +72,13 @@ class LoginController extends Controller
         return redirect($this->redirectTo);
     }
 
-    public function findOrCreateUser($providerUser, $provider)
+    /**
+     * Handles user creation, if one does not exist, and populates social_identities table
+     * @param \Laravel\Socialite\Contracts\User $providerUser
+     * @param string $provider
+     * @return User
+     */
+    public function findOrCreateUser(\Laravel\Socialite\Contracts\User $providerUser, string $provider): User
     {
         $account = SocialIdentity::whereProviderName($provider)
             ->whereProviderId($providerUser->getId())
