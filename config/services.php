@@ -35,4 +35,10 @@ return [
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'), // Your Facebook App Secret
         'redirect' => env('FACEBOOK_CALLBACK_URL'),
     ],
+
+    'twitter' => [
+        'client_id' => env('TWITTER_CLIENT_ID'),  // Your Twitter Client ID
+        'client_secret' => env('TWITTER_CLIENT_SECRET'), // Your Twitter Client Secret
+        'redirect' => env('TWITTER_CALLBACK_URL'),
+    ],
 ];
