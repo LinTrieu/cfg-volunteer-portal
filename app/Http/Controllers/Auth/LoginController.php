@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
@@ -42,12 +44,22 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectToProvider($provider)
+    /**
+     * Redirect to socialite provider api.
+     * @param string $provider
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function redirectToProvider(string $provider)
     {
         return Socialite::driver($provider)->redirect();
     }
 
-    public function handleProviderCallback($provider)
+    /**
+     * Return a callback method from socialite provider api.
+     * @param string $provider
+     * @return RedirectResponse|Redirector
+     */
+    public function handleProviderCallback(string $provider)
     {
         try {
             $user = Socialite::driver($provider)->user();
@@ -77,7 +89,7 @@ class LoginController extends Controller
                     'name'  => $providerUser->getName(),
                 ]);
             }
-            
+
             $user->identities()->create([
                 'provider_id'   => $providerUser->getId(),
                 'provider_name' => $provider,
