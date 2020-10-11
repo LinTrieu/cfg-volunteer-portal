@@ -6,9 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 use Laravel\Socialite\Facades\Socialite;
-use App\Models\SocialIdentity;
 use App\Models\User;
 
 class LoginController extends Controller
@@ -41,7 +39,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Redirect to socialite provider api.
+     * Redirect from our site to socialite provider.
      */
     public function redirectToProvider($provider)
     {
@@ -49,51 +47,48 @@ class LoginController extends Controller
     }
 
     /**
-     * Reads the incoming request, retrieves user information from the provider, and logs user in.
+     * Retrieves user information from the provider and logs user in.
      */
     public function handleProviderCallback($provider)
     {
         try {
-            $user = Socialite::driver($provider)->user();
+            $userSocial = Socialite::driver($provider)->stateless()->user();
         } catch (\Exception $e) {
             return redirect('/login');
         }
-
-        $authUser = $this->findOrCreateUser($user, $provider);
-        Auth::login($authUser, true);
-        return redirect($this->redirectTo);
+        $users = User::where(['email' => $userSocial->getEmail()])->first();
+        if($users) {
+            Auth::login($users, true);
+            return redirect($this->redirectTo);
+        } else {
+            $user = User::create([
+                'name'          => $userSocial->getName(),
+                'email'         => $userSocial->getEmail(),
+                'image'         => $userSocial->getAvatar(),
+                'provider_id'   => $userSocial->getId(),
+                'provider'      => $provider,
+            ]);
+            return redirect($this->redirectTo);
+        }
     }
 
-    /**
-     * Find user based on OAuth details, or create user if not found.
-     */
-    public function findOrCreateUser($providerUser, $provider)
+    // Stateless OAuth is not possible with the TwitterProvider in the Socialite package out of the box.
+    public function twitterCallback()
     {
-        Log::debug("HALLO");
-        Log::debug("Provider: ", [$provider]);
-        Log::debug("Provider User: ", [$providerUser]);
-        $authUser = SocialIdentity::where('provider_id', [$providerUser->id])->first();
-        Log::debug("Auth User: ", [$authUser]);
-
-        if ($authUser) {
-            return $authUser->user;
-        } else {
-             $user = User::where('email', $providerUser->getEmail())->first();
-
-            if (!$user) {
-                $$user = User::create([
-                    'email' => $providerUser->getEmail(),
-                    'name'  => $providerUser->getName(),
-                ]);
-            }
-//
-//            $user->identities()->create([
-//                'provider_name' => $provider,
-//                'provider_id' => $providerUser->id,
-//                'user_id' => $user->id,
-//            ]);
-            Log::debug("User object: ", [$user]);
-            return $user;
+        $twitterSocial =   Socialite::driver('twitter')->user();
+        $users       =   User::where(['email' => $twitterSocial->getEmail()])->first();
+        if($users){
+            Auth::login($users);
+            return redirect('/home');
+        }else{
+            $user = User::firstOrCreate([
+                'name'          => $twitterSocial->getName(),
+                'email'         => $twitterSocial->getEmail(),
+                'image'         => $twitterSocial->getAvatar(),
+                'provider_id'   => $twitterSocial->getId(),
+                'provider'      => 'twitter',
+            ]);
+            return redirect()->route('home');
         }
     }
 }

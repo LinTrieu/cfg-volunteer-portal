@@ -22,6 +22,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Auth routes
 Auth::routes();
+Route::get('login/twitter/callback', 'App\Http\Controllers\Auth\LoginController@twitterCallback');
 Route::get('login/{provider}', 'App\Http\Controllers\Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback','App\Http\Controllers\Auth\LoginController@handleProviderCallback');
 
