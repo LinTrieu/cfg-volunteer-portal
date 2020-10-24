@@ -11,12 +11,15 @@ Source: https://dbdiagram.io/d/5f57aa4488d052352cb669a9
 - [x] Set up local mySQL database
 - [x] Makefile set up
 - [x] Integrate social log in
-- [ ] Include CSS Bootstrap and jQuery libraries
+- [ ] Composer download CSS Bootstrap and jQuery libraries
 - [ ] Include additional front-end dependencies (ie. React) - TBC
 - [ ] Heroku set up
 - [ ] TravisCI set up
 - [ ] Create test user login details
-
+- [ ] Set up the Objects - migration, models, factory, seeders 
+    - [ ] User
+    - [ ] Course
+    - [ ] Session
 
 ### Useful Make commands
 - `make start`
@@ -26,7 +29,6 @@ Source: https://dbdiagram.io/d/5f57aa4488d052352cb669a9
 -------------------------------------
 
 ### How to set up & run application
- For guidance please refer to the file ref: '2.2.setup_instructions_to_run_application' 
  
 1. Git clone repository,
 2. Install PHP, mySQL, Composer, and GNU's Make software.  
@@ -35,7 +37,7 @@ Source: https://dbdiagram.io/d/5f57aa4488d052352cb669a9
 4. Compile CSS UI resources by running `npm install`, and build dev assets running `npm run dev` ,
 5. Run `make start` to start the server. View application on your localhost.
 
-See (Makefile)[https://github.com/LinTrieu/cfg-volunteer-portal/blob/master/Makefile] for a list of commands available in the application. 
+See [Makefile](https://github.com/LinTrieu/cfg-volunteer-portal/blob/master/Makefile) for a list of commands available in the application. 
 
 
 #### Create a local mySQL database
