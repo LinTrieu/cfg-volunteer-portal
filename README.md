@@ -2,9 +2,11 @@
 
 Purpose: A platform to enable CFG instructors to log & record their volunteering hours.
 
+-------------------------------------
 ### Database Design & Schema 
 Source: https://dbdiagram.io/d/5f57aa4488d052352cb669a9
 
+-------------------------------------
 ### Local Development 
 
 Scaffold & Set-Up
@@ -25,10 +27,10 @@ Set up the Objects - migration, models, factory, seeders
     - [ ] Course
     - [ ] Session
 
+-------------------------------------
 ### Useful Make commands
 - `make start`
 - `make migrate-fresh`
-
 
 -------------------------------------
 
