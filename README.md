@@ -1,6 +1,6 @@
-# CodeFirst: Girls Volunteer Portal
+# CodeFirst:Girls Volunteer Portal
 
-Purpose: A platform to enable CFG instructors to log & record their volunteering hours
+Purpose: A platform to enable CFG instructors to log & record their volunteering hours.
 
 ### Database Design & Schema 
 Source: https://dbdiagram.io/d/5f57aa4488d052352cb669a9
