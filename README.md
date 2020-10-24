@@ -1,6 +1,6 @@
-# CFG Volunteer Portal
+# CodeFirst: Girls Volunteer Portal
 
-Application: A volunteer portal for CFG instructors to log their hours
+Purpose: A platform to enable CFG instructors to log & record their volunteering hours
 
 ### Database Design & Schema 
 Source: https://dbdiagram.io/d/5f57aa4488d052352cb669a9
@@ -10,15 +10,17 @@ Source: https://dbdiagram.io/d/5f57aa4488d052352cb669a9
 - [x] Authentication scaffold
 - [x] Set up local mySQL database
 - [x] Makefile set up
-- [ ] Include CSS Bootstrap and jQuery
-- [ ] Include front-end dependencies (eg. React?)
+- [x] Integrate social log in
+- [ ] Include CSS Bootstrap and jQuery libraries
+- [ ] Include additional front-end dependencies (ie. React) - TBC
 - [ ] Heroku set up
-- [ ] Test user account login details
+- [ ] TravisCI set up
+- [ ] Create test user login details
 
 
 ### Useful Make commands
 - `make start`
-- `make migrate-fresh`
+- `make migrate-fresh ARGS="--seed"`
 
 
 -------------------------------------
