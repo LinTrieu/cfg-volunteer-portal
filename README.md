@@ -6,6 +6,8 @@ Purpose: A platform to enable CFG instructors to log & record their volunteering
 Source: https://dbdiagram.io/d/5f57aa4488d052352cb669a9
 
 ### Local Development 
+
+Scaffold & Set-Up
 - [x] Laravel 8 application scaffold
 - [x] Authentication scaffold
 - [x] Set up local mySQL database
@@ -15,6 +17,8 @@ Source: https://dbdiagram.io/d/5f57aa4488d052352cb669a9
 - [ ] Include additional front-end dependencies (ie. React) - TBC
 - [ ] Heroku set up
 - [ ] TravisCI set up
+
+Set up the Objects - migration, models, factory, seeders
 - [ ] Create test user login details
 - [ ] Set up the Objects - migration, models, factory, seeders 
     - [ ] User
@@ -23,7 +27,7 @@ Source: https://dbdiagram.io/d/5f57aa4488d052352cb669a9
 
 ### Useful Make commands
 - `make start`
-- `make migrate-fresh ARGS="--seed"`
+- `make migrate-fresh`
 
 
 -------------------------------------

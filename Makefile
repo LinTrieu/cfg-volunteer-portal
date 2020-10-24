@@ -16,7 +16,7 @@ migrate: ## Migrate database
 	php artisan migrate
 
 migrate-fresh: ## Recreate database fresh (drop all tables and migrate)
-	php artisan migrate:fresh $(ARGS)
+	php artisan migrate:fresh --seed
 
 migrate-seed: ## Migrate and seed database
 	php artisan migrate
