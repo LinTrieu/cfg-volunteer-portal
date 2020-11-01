@@ -8,9 +8,27 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 //use App\Models\SocialIdentity;
 
+/**
+ * Class User
+ *
+ * @property  int $id
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $email
+ * @property string $password
+ * @property string $provider
+ * @property integer $provider_id
+ * @property string $image
+ * @property bool $admin
+ * @property string $job_title
+ * @property string $company
+ * @property string $description
+ */
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -18,12 +36,17 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
-        'image',
+        'password',
         'provider',
         'provider_id',
-        'password',
+        'image',
+        'admin',
+        'job_title',
+        'company',
+        'description'
     ];
 
     /**
