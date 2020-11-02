@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use Database\Factories\UserFactory;
 
 class UserSeeder extends Seeder
 {
@@ -21,7 +20,7 @@ class UserSeeder extends Seeder
             echo "Skipping User; data already exists\n";
             return;
         }
-//        TODO: UserFactory
-//        factory(User::class, self::NUMBER_OF_USERS)->create();
+
+        User::factory()->count(self::NUMBER_OF_USERS)->create();
     }
 }

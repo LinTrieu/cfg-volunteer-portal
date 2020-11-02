@@ -26,6 +26,7 @@ Set up the Objects - migration, models, factory, seeders
     - [ ] User
     - [ ] Course
     - [ ] Session
+- [ ] Set up database join-table for user_session
 
 -------------------------------------
 ### Useful Make commands
