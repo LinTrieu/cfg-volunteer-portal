@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             echo "Skipping User; data already exists\n";
             return;
         }
-
-        factory(User::class, self::NUMBER_OF_USERS)->create();
+//        TODO: UserFactory
+//        factory(User::class, self::NUMBER_OF_USERS)->create();
     }
 }

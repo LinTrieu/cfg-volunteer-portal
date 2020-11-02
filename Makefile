@@ -25,7 +25,7 @@ migrate-seed: ## Migrate and seed database
 migrate-rollback: ## Rollback database migration
 	php artisan migrate:rollback
 
-start: ## Serve application
+st: ## Serve application
 	php artisan serve
 
 tinker: ## Tinker REPL
