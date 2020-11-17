@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -22,5 +23,19 @@ class UserSeeder extends Seeder
         }
 
         User::factory()->count(self::NUMBER_OF_USERS)->create();
+
+        // pre-configured user data for manual testing purposes
+        $volunteer = new User();
+        $volunteer->name = 'Volunteer User';
+        $volunteer->email = 'volunteer@email.com';
+        $volunteer->password = Hash::make('password');
+        $volunteer->save();
+
+        $admin = new User();
+        $admin->name = 'Admin User';
+        $admin->email = 'admin@email.com';
+        $admin->password = Hash::make('password');
+        $admin->admin = 1;
+        $admin->save();
     }
 }
