@@ -27,13 +27,14 @@ class UserSeeder extends Seeder
         // pre-configured user data for manual testing purposes
         $volunteer = new User();
         $volunteer->name = 'Volunteer User';
-        $volunteer->email = 'volunteer@email.com';
+        $volunteer->email = 'volunteer@test.com';
         $volunteer->password = Hash::make('password');
+        $volunteer->admin = 0;
         $volunteer->save();
 
         $admin = new User();
         $admin->name = 'Admin User';
-        $admin->email = 'admin@email.com';
+        $admin->email = 'admin@test.com';
         $admin->password = Hash::make('password');
         $admin->admin = 1;
         $admin->save();

@@ -18,7 +18,7 @@
 
                     <p>Name: {{Auth::user()->name}}</p>
                     <p>Email: {{Auth::user()->email}}</p>
-                    <img alt="{{Auth::user()->name}}" src="{{Auth::user()->image}}"/>
+                    <img alt="{{Auth::user()->name}}" src="{{Auth::user()->avatar}}"/>
                 </div>
             </div>
         </div>

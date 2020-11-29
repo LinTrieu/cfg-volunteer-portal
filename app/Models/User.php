@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $password
  * @property string $provider
  * @property integer $provider_id
- * @property string $image
+ * @property string $avatar
  * @property bool $admin
  * @property string $job_title
  * @property string $company
@@ -40,7 +40,7 @@ class User extends Authenticatable
         'password',
         'provider',
         'provider_id',
-        'image',
+        'avatar',
         'admin',
         'job_title',
         'company',

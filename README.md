@@ -15,23 +15,33 @@ Scaffold & Set-Up
 - [x] Set up local mySQL database
 - [x] Makefile set up
 - [x] Integrate social log in
-- [ ] Composer download CSS Bootstrap and jQuery libraries
-- [ ] Include additional front-end dependencies (ie. React) - TBC
+- [ ] Composer download front-end dependencies, such as CSS Bootstrap and jQuery libraries
 - [ ] Heroku set up
 - [ ] TravisCI set up
 
 Set up the Objects - migration, models, factory, seeders
-- [ ] Create test user login details
+- [x] Create test user login details
 - [ ] Set up the Objects - migration, models, factory, seeders 
-    - [ ] User
+    - [x] User
     - [ ] Course
     - [ ] Session
-- [ ] Set up database join-table for user_session
+- [ ] Set up database schema for user_session join table
 
 -------------------------------------
 ### Useful Make commands
 - `make start`
 - `make migrate-fresh`
+
+-------------------------------------
+
+##  User Account Login Details for Testing
+The application is pre-configured with two user accounts for varying user permission levels. 
+
+Login Details: 
+- Email: `volunteer@test.com`
+- Email: `admin@test.com`
+
+Password for both user accounts: `password` 
 
 -------------------------------------
 

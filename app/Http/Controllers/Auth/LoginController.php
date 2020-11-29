@@ -64,7 +64,7 @@ class LoginController extends Controller
             $user = User::create([
                 'name'          => $userSocial->getName(),
                 'email'         => $userSocial->getEmail(),
-                'image'         => $userSocial->getAvatar(),
+                'avatar'         => $userSocial->getAvatar(),
                 'provider_id'   => $userSocial->getId(),
                 'provider'      => $provider,
             ]);
@@ -84,7 +84,7 @@ class LoginController extends Controller
             $user = User::firstOrCreate([
                 'name'          => $twitterSocial->getName(),
                 'email'         => $twitterSocial->getEmail(),
-                'image'         => $twitterSocial->getAvatar(),
+                'avatar'         => $twitterSocial->getAvatar(),
                 'provider_id'   => $twitterSocial->getId(),
                 'provider'      => 'twitter',
             ]);
